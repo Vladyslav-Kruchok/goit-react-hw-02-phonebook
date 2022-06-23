@@ -1,31 +1,9 @@
 import PropsType from "prop-types";
 import React from "react";
-import styles from "./ContactList.module.css";
+import { ListItem } from "../ListItem";
 
 export class ContactList extends React.Component { 
-    render() { 
-        const { contacts, onClick } = this.props;
-        return (
-            <ul>
-                {
-                    contacts.map(({id, name, number}) => 
-                        <li className={styles.list} key={id}>
-                            <span className={styles.span}>{name}:</span>
-                            <a className={styles.link} href={number}>{number}</a>
-                            <button
-                                className={styles.button}
-                                id={id}
-                                onClick={onClick}
-                            >Видалити</button>
-                        </li>
-                    )
-                }
-            </ul>
-        );
-    };
-};
-
-ContactList.protoType = {
+    static protoType = {
     contacts: PropsType.arrayOf(PropsType.shape({
             id: PropsType.string.isRequired,
             name: PropsType.string.isRequired,
@@ -33,4 +11,18 @@ ContactList.protoType = {
         }
     )),
     onClick: PropsType.func.isRequired
+    };
+    
+    render() { 
+        const { contacts, onClick } = this.props;
+        return (
+            <ul>
+                {
+                    contacts.map(({ id, name, number }) => 
+                        <ListItem onClick={onClick} id={id} name={name} number={number} />
+                    )
+                }
+            </ul>
+        );
+    };
 };

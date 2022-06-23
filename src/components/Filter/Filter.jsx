@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styles from "./Filter.module.css"
 
 export class Filter extends React.Component {
+    static protoType = {
+        onInput: PropTypes.func.isRequired
+    };
+    
     render() { 
         const { onInput} = this.props;
         return (
