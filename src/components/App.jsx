@@ -17,28 +17,6 @@ const INITIAL_STATE = [
       contacts: INITIAL_STATE,
       filter: ''
     };
-  //#region SYSTEM FUNC #
-  //When app start
-  componentDidMount() {
-    //data in localStorage
-    const contactStorage = localStorage.getItem("contacts");
-    //transform to object
-    const contactStorageParsed = JSON.parse(contactStorage);
-    //check on data in localStorage
-    if (contactStorageParsed) {
-      //write to state
-      this.setState({ contacts: contactStorageParsed });  
-    }
-  };
-  //when data`s updated
-  componentDidUpdate(prevProps, prevState)
-  {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
-    }
-    };
-  //#endregion #
-
   //#region ON_FUNC #
   //(import) Data from ContactForm
   extFormOnSubmit = (data) => {
