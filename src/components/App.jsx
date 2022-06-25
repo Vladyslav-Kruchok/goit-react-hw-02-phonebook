@@ -30,7 +30,7 @@ const INITIAL_STATE = [
     });
   }
   //del item in ContactList
-  extListOnClick = (e) => {
+    extListOnClick = (e) => {
     const id = e.nativeEvent.target.id;
     this.setState((prevState) => {
       const newArr = prevState.contacts.filter(item => item.id !== id);

@@ -19,7 +19,7 @@ export class ContactList extends React.Component {
             <ul>
                 {
                     contacts.map(({ id, name, number }) => 
-                        <ListItem onClick={onClick} id={id} name={name} number={number} />
+                        <ListItem onClick={onClick} key={id} id={id} name={name} number={number} />
                     )
                 }
             </ul>

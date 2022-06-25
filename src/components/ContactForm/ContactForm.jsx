@@ -6,8 +6,7 @@ import styles from "./ContactForm.module.css";
 
 export class ContactForm extends React.Component {
     static protoType = {
-        name: PropsType.string.isRequired,
-        number: PropsType.string.isRequired
+        onSubmit: PropsType.func.isRequired
     };
 
     state = {
